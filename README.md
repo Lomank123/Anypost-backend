@@ -2,6 +2,21 @@
 
 Server side application for Anypost project
 
+## Goals
+
+What needs to be covered:
+
+- TypeORM
+- Authorization & Authentication
+- DB Migrations
+- Nested routes
+- Applications interaction
+- Form validations
+- Cookies & JWT
+- Task scheduling
+- Server side rendering
+- Connection between backend & frontend
+
 
 ## Installation
 
