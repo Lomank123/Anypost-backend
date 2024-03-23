@@ -1,7 +1,8 @@
 import { BaseEntity } from '../../abstractEntities/base.entity';
-import { Column, ManyToOne } from 'typeorm';
+import { Column, Entity, ManyToOne } from 'typeorm';
 import { PostStatsEntity } from './postStats.entity';
 
+@Entity()
 export class PostReactionEntity extends BaseEntity {
   @ManyToOne(() => PostStatsEntity, (stats) => stats.reactions)
   stats!: PostStatsEntity;

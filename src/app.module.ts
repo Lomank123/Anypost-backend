@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DB_CONFIG } from './app.settings';
-import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/modules/posts.module';
 
 @Module({
   imports: [
@@ -12,7 +12,8 @@ import { UsersModule } from './users/users.module';
     ConfigModule.forRoot(),
     // DB connection
     TypeOrmModule.forRoot(DB_CONFIG),
-    UsersModule,
+    // Custom modules
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

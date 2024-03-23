@@ -1,7 +1,8 @@
 import { BaseEntity } from '../../abstractEntities/base.entity';
-import { Column, OneToOne } from 'typeorm';
+import { Column, Entity, OneToOne } from 'typeorm';
 import { PostStatsEntity } from './postStats.entity';
 
+@Entity()
 export class PostEntity extends BaseEntity {
   @Column({
     type: 'text',
