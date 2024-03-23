@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseUUIDPipe } from '@nestjs/common';
 import { PostsService } from '../services/posts.service';
 import { PostEntity } from '../entities/post.entity';
 
@@ -8,13 +8,16 @@ export class PostsController {
 
   @Get()
   async getAllPosts(): Promise<PostEntity[]> {
+    // TODO: Add pagination
     return await this.postsService.fetchAllPosts();
   }
 
   @Get('/:id')
   async getPostById(
-    @Param() params: { [key: string]: any },
+    @Param('id', ParseUUIDPipe) id: string,
   ): Promise<PostEntity | null> {
-    return await this.postsService.fetchPostById(params.id);
+    return await this.postsService.fetchPostById(id);
   }
+
+  // TODO: Add Create/Edit methods. Edit is tricky
 }
