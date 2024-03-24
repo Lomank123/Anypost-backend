@@ -8,10 +8,10 @@ What needs to be covered:
 
 - TypeORM
 - Authorization & Authentication
-- DB Migrations
+- DB Migrations (done)
 - Nested routes
 - Applications interaction
-- Form validations
+- Form validations (DTOs) (done)
 - Cookies & JWT
 - Task scheduling
 - Server side rendering
@@ -39,8 +39,23 @@ npm install
 docker compose up -d --build
 ```
 
-- Start the server (available commands can be found in `package.json`):
+- Run migrations
+
+```shell
+npm run migration:run
+```
+
+- Start the server:
 
 ```shell
 npm run start:dev
+```
+
+
+## Migrations
+
+- To generate migration:
+
+```shell
+npm run migration:generate ./src/migrations/<migration-name>
 ```
