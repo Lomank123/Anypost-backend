@@ -1,6 +1,7 @@
 import { BaseEntity } from '../../abstractEntities/base.entity';
 import { Column, Entity, OneToOne } from 'typeorm';
 import { PostStatsEntity } from './postStats.entity';
+import { Expose } from 'class-transformer';
 
 @Entity()
 export class PostEntity extends BaseEntity {
@@ -21,7 +22,8 @@ export class PostEntity extends BaseEntity {
   @OneToOne(() => PostStatsEntity, (stats) => stats.post)
   stats!: PostStatsEntity;
 
-  isOutdated(): boolean {
-    return this.createdAt.getUTCMilliseconds() + this.ttl > Date.now();
+  @Expose()
+  get isOutdated(): boolean {
+    return this.createdAt.getTime() + this.ttl < Date.now();
   }
 }
